@@ -1,0 +1,217 @@
+:root{
+    --padding: 5px;
+    --bradius: 5px
+}
+
+html, body {
+    margin: 0;
+    padding: 0, 30px;
+    background: rgb(230, 230, 230);
+    display: flex;
+    justify-content: center;
+}
+
+#container {
+    display: grid;
+    grid-gap: .5rem;
+    height: 100vh;
+    /* width: 80vw; */
+    width: 800px;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 0.1fr 0.1fr 0.1fr 0.35fr 0.35fr;
+    grid-template-areas:
+    "nav nav nav"
+    "blank blank blank"
+    "micro micro micro"
+    "content1 main content2"
+    "content3 main content4";
+    text-align: center;
+}
+
+#nav {
+    display: flex;
+    /* justify-content: space-between; */
+    align-items: center;
+    background: #fff;
+    grid-area: nav;
+    border-radius: var(--bradius);
+    /* padding: 20px, 20px, 0, 20px; [Not working why]*/
+    /* padding-left: 20px, 20px; */
+}
+
+#nav>ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+}
+
+#nav>ul>li {
+    margin: 10px;
+}
+
+.logo{
+    font-size: 30px;
+    margin-left: 25px;
+    margin-right: 25px;
+}
+
+#nav>i {
+    margin-right: 25px;
+    margin-left: auto;
+}
+
+#micro {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: .2rem;
+    justify-content: space-between;
+    /* justify-content: center; */
+    grid-area: micro;
+}
+.micro {
+    display: flex;
+    align-items: center;
+    background: #fff;
+    border-radius: var(--bradius);
+    padding-top: var(--padding);
+
+}
+
+.microImg {
+    max-width: 60px;
+    float: left;
+    shape-outside: circle(50% at 50% 50%);
+    -webkit-shape-outside: circle(50% at 50% 50%);
+    clip-path: circle(50% at 50% 50%);
+    -webkit-clip-path: circle(50% at 50% 50%);
+    /* transform: translate(-10px); */
+}
+
+.microContent>.sub-heading {
+    font-size: 12px;
+    text-align: left;
+    margin-bottom: 5px;
+}
+
+.microContent>.time {
+    font-size: 10px;
+    text-align: left;
+}
+
+
+#main {
+    background-image: url(../assets/img/girlNature.jpg);
+    background-size: cover;
+    grid-area: main;
+    border-radius: var(--bradius);
+    padding-top: var(--padding);
+}
+#content1 {
+    background-image: url(../assets/img/double-burger.jpg);
+    background-size: cover;
+    grid-area: content1;
+    border-radius: var(--bradius);
+    padding-top: var(--padding);
+}
+#content2 {
+    background-image: url(../assets/img/2021_Toyota_Venza.jpg);
+    background-size: cover;
+    grid-area: content2;
+    border-radius: var(--bradius);
+    padding-top: var(--padding);
+}
+#content3 {
+    background-image: url(../assets/img/Types-of-Fashion-Photography-Thumbnail.jpg);
+    background-size: cover;
+    grid-area: content3;
+    border-radius: var(--bradius);
+    padding-top: var(--padding);
+}
+#content4 {
+    background-image: url(../assets/img/watch.jpg);
+    background-size: cover;
+    grid-area: content4;
+    border-radius: var(--bradius);
+    padding-top: var(--padding);
+}
+
+.content {
+    position: relative;
+}
+
+.para {
+    position: absolute;
+    bottom: 0;
+    color: #fff;
+    text-align: left;
+    padding: 15px;
+}
+
+.para>.heading {
+    background-color: purple;
+    padding: 5px;
+    border-radius: 4px;
+    max-width: fit-content;
+}
+
+@media only screen and (max-width: 900px) {
+    #container {
+        height: 200vh;
+        width: 95vw;
+        gap: 2rem;
+        grid-template-columns: 1fr;
+        grid-template-rows: .05fr .02fr .08fr .35fr .15fr .15fr .15fr .15fr ;
+        grid-template-areas: 
+        "nav"
+        "blank"
+        "micro"
+        "main"
+        "content1"
+        "content2"
+        "content3"
+        "content4";
+    }
+
+    ul {
+        /* display: none; */
+        position: fixed;
+        height: 100vh;
+        width: 100%;
+        left: -100%;
+        top: 0;
+        background: #111;
+        text-align: center;
+        padding-top: 80px;
+        transition: all 0.3s ease;
+        z-index: 100;
+        color: #fff;
+        font-size: 30px;
+        display: flex;
+        flex-direction: column;
+        /* justify-content: space-between; */
+    }
+    .logo>i {
+        margin-right: 25px;
+        cursor: pointer;
+    }
+
+    #micro {
+        /* grid-template-columns: .5fr; */
+        position: relative;
+        width: 100%;
+        overflow: auto;
+        white-space: nowrap;
+        scrollbar-width: none;
+    }
+    #micro::-webkit-scrollbar { 
+        display: none; 
+     }
+
+    .micro {
+        min-width: 50vw;
+    }
+
+    .active{
+        left: 0;
+    }
+}
